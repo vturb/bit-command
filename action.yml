@@ -1,5 +1,5 @@
-name: 'Bit Tag and Export'
-description: 'Persist Bit Soft Tags and Export to Remote Scope'
+name: 'Bit Verify'
+description: 'Verify issues in bit components'
 inputs:
   ws-dir:
     description: "Workspace json file directory path"
