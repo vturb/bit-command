@@ -3968,11 +3968,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const core = __importStar(__nccwpck_require__(186));
 const exec_1 = __nccwpck_require__(514);
-const tag_export_1 = __importDefault(__nccwpck_require__(905));
+const verify_1 = __importDefault(__nccwpck_require__(903));
 try {
     const wsDir = core.getInput("ws-dir") || process.env.WSDIR || "./";
     const stdExec = (command, options) => (0, exec_1.exec)(command, [], options);
-    (0, tag_export_1.default)(stdExec, wsDir);
+    (0, verify_1.default)(stdExec, wsDir);
 }
 catch (error) {
     core.setFailed(error.message);
@@ -3981,7 +3981,7 @@ catch (error) {
 
 /***/ }),
 
-/***/ 905:
+/***/ 903:
 /***/ (function(__unused_webpack_module, exports) {
 
 "use strict";
@@ -3997,8 +3997,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const run = (exec, wsdir) => __awaiter(void 0, void 0, void 0, function* () {
-    yield exec('bit tag --persist', { cwd: wsdir });
-    yield exec('bit export', { cwd: wsdir });
+    yield exec('bit status --strict', { cwd: wsdir });
+    yield exec('bit build', { cwd: wsdir });
 });
 exports["default"] = run;
 
