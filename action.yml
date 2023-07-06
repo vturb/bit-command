@@ -1,5 +1,8 @@
 name: 'Bit Verify'
 description: 'Verify issues in bit components'
+branding: 
+  icon: 'check'
+  color: 'purple'
 inputs:
   ws-dir:
     description: "Workspace json file directory path"
