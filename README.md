@@ -13,7 +13,7 @@ This CD Task, executs `bit status --strict && bit build` inside the workspace di
 
 ## Example usage
 
-Define the `bit-tasks/init@v1` action in your pipeline before using the Verify.
+**Note:** Use `bit-task/init@v1` as a prior step in your action before running Bit Verify.
 
 ```yaml
 name: Test Bit Verify
