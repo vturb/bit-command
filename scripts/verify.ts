@@ -1,6 +1,6 @@
 import { exec } from "@actions/exec";
 
-const run: (wsdir: string) => Promise<void> = async (wsdir) => {
+const run = async (wsdir: string) => {
   await exec("bit status --strict", [], { cwd: wsdir });
   await exec("bit build", [], { cwd: wsdir });
 };
