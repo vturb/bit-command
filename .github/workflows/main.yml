@@ -2,7 +2,7 @@ name: Test Bit Verify
 on:
   workflow_dispatch:
 jobs:
-  release:
+  verify:
     runs-on: ubuntu-latest
     env:
       BIT_CONFIG_USER_TOKEN: ${{ secrets.BIT_CONFIG_USER_TOKEN }}

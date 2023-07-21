@@ -3,7 +3,7 @@ Check Bit components for issues in a Bit workspace.
 
 # GitHub Actions
 
-This CD Task, executs `bit status --strict && bit build` inside the workspace directory.
+This task executes `bit status --strict && bit build` inside the workspace directory.
 
 ## Inputs
 
@@ -20,7 +20,7 @@ name: Test Bit Verify
 on:
   workflow_dispatch:
 jobs:
-  release:
+  verify:
     runs-on: ubuntu-latest
     env:
       BIT_CONFIG_USER_TOKEN: ${{ secrets.BIT_CONFIG_USER_TOKEN }}
@@ -51,4 +51,4 @@ git tag -a -m "action release" v1 --force
 git push --follow-tags
 ```
 
-For more information refer [Create a javascript action](https://docs.github.com/en/actions/creating-actions/creating-a-javascript-action)
+For more information, refer to [Create a javascript action](https://docs.github.com/en/actions/creating-actions/creating-a-javascript-action)
