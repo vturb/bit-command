@@ -13,7 +13,7 @@ This task executes `bit status --strict && bit build` inside the workspace direc
 
 ## Example usage
 
-**Note:** Use `bit-task/init@v1` as a prior step in your action before running Bit Verify.
+**Note:** Use `bit-task/init@v1` as a prior step in your action before running `bit-tasks/verify@v1`.
 
 ```yaml
 name: Test Bit Verify
@@ -23,6 +23,9 @@ jobs:
   verify:
     runs-on: ubuntu-latest
     env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GITHUB_USERNAME: ${{ secrets.GITHUB_USERNAME }}
+      GITHUB_EMAIL: ${{ secrets.GITHUB_EMAIL }}
       BIT_CONFIG_USER_TOKEN: ${{ secrets.BIT_CONFIG_USER_TOKEN }}
     steps:
       - name: Checkout repository
