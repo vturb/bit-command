@@ -11,6 +11,10 @@ This task executes `bit status --strict && bit build` inside the workspace direc
 
 **Optional** The workspace directory path from the root. Default `"Dir specified in Init Task or ./"`.
 
+### `skip-build`
+
+**Optional** Skip running `bit build` in the action.
+
 ## Example usage
 
 **Note:** Use `bit-task/init@v1` as a prior step in your action before running `bit-tasks/verify@v1`.
