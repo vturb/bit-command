@@ -3970,7 +3970,8 @@ const core = __importStar(__nccwpck_require__(186));
 const verify_1 = __importDefault(__nccwpck_require__(903));
 try {
     const wsDir = core.getInput("ws-dir") || process.env.WSDIR || "./";
-    (0, verify_1.default)(wsDir);
+    const skipBuild = core.getInput("skip-build") === "true" ? true : false;
+    (0, verify_1.default)(skipBuild, wsDir);
 }
 catch (error) {
     core.setFailed(error.message);
@@ -3995,9 +3996,11 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const exec_1 = __nccwpck_require__(514);
-const run = (wsdir) => __awaiter(void 0, void 0, void 0, function* () {
+const run = (skipBuild, wsdir) => __awaiter(void 0, void 0, void 0, function* () {
     yield (0, exec_1.exec)("bit status --strict", [], { cwd: wsdir });
-    yield (0, exec_1.exec)("bit build", [], { cwd: wsdir });
+    if (!skipBuild) {
+        yield (0, exec_1.exec)("bit build", [], { cwd: wsdir });
+    }
 });
 exports["default"] = run;
 
