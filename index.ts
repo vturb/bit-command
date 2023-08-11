@@ -1,11 +1,9 @@
 import * as core from "@actions/core";
-import run from "./scripts/verify";
+import run from "./scripts/command";
 
 try {
   const wsDir: string = core.getInput("ws-dir") || process.env.WSDIR || "./";
-  const skipBuild: boolean =
-    core.getInput("skip-build") === "true" ? true : false;
-  run(skipBuild, wsDir);
+  run(core.getInput("cmd"), wsDir);
 } catch (error) {
   core.setFailed((error as Error).message);
 }

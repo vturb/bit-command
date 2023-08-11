@@ -3967,11 +3967,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const core = __importStar(__nccwpck_require__(186));
-const verify_1 = __importDefault(__nccwpck_require__(903));
+const command_1 = __importDefault(__nccwpck_require__(874));
 try {
     const wsDir = core.getInput("ws-dir") || process.env.WSDIR || "./";
-    const skipBuild = core.getInput("skip-build") === "true" ? true : false;
-    (0, verify_1.default)(skipBuild, wsDir);
+    (0, command_1.default)(core.getInput("cmd"), wsDir);
 }
 catch (error) {
     core.setFailed(error.message);
@@ -3980,7 +3979,7 @@ catch (error) {
 
 /***/ }),
 
-/***/ 903:
+/***/ 874:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -3996,11 +3995,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const exec_1 = __nccwpck_require__(514);
-const run = (skipBuild, wsdir) => __awaiter(void 0, void 0, void 0, function* () {
-    yield (0, exec_1.exec)("bit status --strict", [], { cwd: wsdir });
-    if (!skipBuild) {
-        yield (0, exec_1.exec)("bit build", [], { cwd: wsdir });
-    }
+const run = (cmd, wsdir) => __awaiter(void 0, void 0, void 0, function* () {
+    yield (0, exec_1.exec)(`bit ${cmd}`, [], { cwd: wsdir });
 });
 exports["default"] = run;
 

@@ -1,26 +1,26 @@
-# Bit Verify Components for CI/CD Pipelines
-Check Bit components for issues in a Bit workspace.
+# Bit Command for CI/CD Pipelines
+Execute Bit command in a Bit workspace.
 
 # GitHub Actions
 
-This task executes `bit status --strict && bit build` inside the workspace directory.
+This task executes `bit ${cmd}` inside the workspace directory.
 
 ## Inputs
+
+### `cmd`
+
+**Required** The command to execute in bit workspace.
 
 ### `ws-dir`
 
 **Optional** The workspace directory path from the root. Default `"Dir specified in Init Task or ./"`.
 
-### `skip-build`
-
-**Optional** Skip running `bit build` in the action.
-
 ## Example usage
 
-**Note:** Use `bit-task/init@v1` as a prior step in your action before running `bit-tasks/verify@v1`.
+**Note:** Use `bit-task/init@v1` as a prior step in your action before running `vturb/bit-command@v1`.
 
 ```yaml
-name: Test Bit Verify
+name: Test Bit Command
 on:
   workflow_dispatch:
 jobs:
@@ -36,10 +36,10 @@ jobs:
         uses: actions/checkout@v3
       - name: Initialize Bit
         uses: bit-tasks/init@v1
+      - name: Bit Custom Command
+        uses: vturb/bit-command@v1
         with:
-          ws-dir: '<WORKSPACE_DIR_PATH>'
-      - name: Bit Verify
-        uses: bit-tasks/verify@v1
+          cmd: lint -a
 ```
 
 # Contributor Guide

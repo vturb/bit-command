@@ -1,4 +1,4 @@
-name: Test Bit Verify
+name: Test Bit Command
 on:
   workflow_dispatch:
 jobs:
@@ -14,4 +14,6 @@ jobs:
         with:
             ws-dir: 'test-data'
       - name: Bit Verify
-        uses: bit-tasks/verify@main
+        uses: vturb/bit-command@main
+        with:
+          cmd: status --strict

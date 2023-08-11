@@ -1,14 +1,14 @@
-name: 'Bit Verify'
-description: 'Verify issues in bit components'
+name: 'Bit Command'
+description: 'Execute a custom bit command'
 branding: 
   icon: 'check'
-  color: 'purple'
+  color: 'green'
 inputs:
+  cmd:
+    description: "Custom command to execute"
+    required: true
   ws-dir:
     description: "Workspace json file directory path"
-    required: false
-  skip-build:
-    description: "Skip running 'bit build'"
     required: false
 runs:
   using: 'node16'
